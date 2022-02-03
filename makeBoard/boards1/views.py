@@ -13,6 +13,8 @@ from  .models import Topic, Reply
 from django.http import HttpResponse
 #http 상태를 나타내기 위한 장고 모듈
 
+from ckeditor.fields import RichTextField
+
 
 
 # 추가하기
@@ -31,6 +33,7 @@ def new_topic(request):
 
         topic = Topic.objects.create(
             subject=subject,
+            wys = RichTextUploadingField(),#위즈위그
             message=message,
             writter=user
         )
