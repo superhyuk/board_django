@@ -12,8 +12,10 @@ from  .models import Topic, Reply
 
 from django.http import HttpResponse
 
+from django import forms
 
 
+from .forms import CreateTopic
 
 # 추가하기
 def home(request):
