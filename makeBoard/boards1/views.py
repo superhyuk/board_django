@@ -28,7 +28,6 @@ def new_topic(request):
     if request.method =='POST':
         subject = request.POST['subject']
         message = request.POST['message']
-
         user = User.objects.first()
 
         topic = Topic.objects.create(
