@@ -16,9 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from boards1 import views
+from django.conf.urls import include# checkeditor  url을 참조
+
+from django.conf import settings #media 경로 참조
+from django.conf.urls.static import static #media 경로 참조
+ 
+
+
 
 urlpatterns = [
     path('',views.home, name='home'),
     path('new_topic/',views.new_topic,name='new_topic'),#게시글 작성 페이지 url 추가
+    path('ckeditor/', include('ckeditor_uploader.urls')),# checkeditor url을 참조
     path('admin/', admin.site.urls),
 ]
+
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)#media 경로 참조
