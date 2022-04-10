@@ -48,8 +48,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
-    'ckeditor',
-    'ckeditor_uploader',
+    'django.forms', #form을 사용하기 위함
+    
+    'ckeditor',  #wsywig 패키지
+    'ckeditor_uploader',#wsywig 패키지
 
     'boards1',
 ]
@@ -90,6 +92,7 @@ WSGI_APPLICATION = 'makeBoard.wsgi.application'
 
 
 #위즈위그
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
@@ -141,8 +144,37 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
+
+
+
+# STATICFILES_DIRS = [
+#      os.path.join(BASE_DIR,'static')
+# ]
+
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static')
-]
+STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static')]
+
+
+#staticfiles app without having set the STATIC_ROOT setting to a filesystem path  오류시 밑에 경로로
+
+
+
+
+
+
+
+#wsywig 설정
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        # 'toolbar': 'Custom',
+        'width': '800px',
+        'height': 'auto',
+        # 'toolbar_Custom': [
+        #     ['Bold', 'Italic', 'Underline'],
+        #     ['NumberedList', 'BulletedList'],
+        # ],
+    }
+}

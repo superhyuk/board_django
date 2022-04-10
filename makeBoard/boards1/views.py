@@ -12,21 +12,22 @@ from  .models import Topic, Reply
 
 from django.http import HttpResponse
 
-
+#form.py를 불러옴
+from .forms import RichForm
 
 
 # 추가하기
 def home(request):
+ 
     topics = Topic.objects.all()   #models의 Topic 개체 생성
-    return render(request,'home.html',{'topics':topics})
+    return render(request,'home.html')
  
 def new_topic(request):
 
-    topics = Topic.objects.all()
+    topics = Topic.objects.all()    
     if request.method =='POST':
         subject = request.POST['subject']
         message = request.POST['message']
-
         user = User.objects.first()
 
         topic = Topic.objects.create(
@@ -45,7 +46,7 @@ def new_topic(request):
   
        
     
-    return render(request,'new_topic.html',{'topics':topics})
+    return render(request,'new_topic.html',{'form':RichForm()})
 
 
 
