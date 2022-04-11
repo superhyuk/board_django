@@ -9,7 +9,6 @@ from ckeditor.fields import RichTextField
 #ckeditor 패키지 임포트
 
 class Topic(models.Model):
-    message = models.TextField(max_length=5000,null=True)
     content=RichTextField(null=True)
     subject = models.CharField(max_length=255)
     last_updated =  models.DateField(auto_now_add=True, null=True)

@@ -27,17 +27,16 @@ def new_topic(request):
     topics = Topic.objects.all()    
     if request.method =='POST':
         subject = request.POST['subject']
-        message = request.POST['message']
         user = User.objects.first()
 
         topic = Topic.objects.create(
             subject=subject,
-            message=message,
+            # message=message, 삭제
             writter=user
         )
 
         post = Reply.objects.create(
-            message=message,
+            # message=message, 삭제
             created_by=user
 
         )
