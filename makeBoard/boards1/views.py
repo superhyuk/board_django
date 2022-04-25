@@ -13,6 +13,8 @@ from  .models import Topic, Reply
 from django.http import HttpResponse
 
 from .forms import SummerForm
+from django.contrib.auth.models import User
+
 
 #form.py를 불러옴
 #from .forms import RichForm
@@ -25,16 +27,15 @@ def home(request):
     return render(request,'home.html')
  
 def new_topic(request):
-
+    form = SummerForm()
     topics = Topic.objects.all()    
     if request.method =='POST':
         subject = request.POST['subject']
         user = User.objects.first()
 
         topic = Topic.objects.create(
-            subject=subject,
-            # message=message, 삭제
-            writter=user
+            subject=subject,         
+            user=user,
         )
 
         post = Reply.objects.create(

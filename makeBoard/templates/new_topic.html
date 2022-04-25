@@ -17,10 +17,17 @@
     </div>
 
     {{form.content}}
+    <button type="submit" class="btn btn-info">등록</button>
+     
+    <button class= "btn btn-info" onclick="location.href='{% url 'home' %}'"> 취소</button>     
 
-    <div>
-        <button type="submit" class="btn btn-info">게시</button>
-    </div>
 
-</form>
+
+
+</form>    
+       
+    
+
+
+
 {% endblock %}
