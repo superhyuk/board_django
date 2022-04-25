@@ -12,8 +12,10 @@ from  .models import Topic, Reply
 
 from django.http import HttpResponse
 
+from .forms import SummerForm
+
 #form.py를 불러옴
-from .forms import RichForm
+#from .forms import RichForm
 
 
 # 추가하기
@@ -45,7 +47,7 @@ def new_topic(request):
   
        
     
-    return render(request,'new_topic.html',{'form':RichForm()})
+    return render(request,'new_topic.html',{'form': SummerForm()})
 
 
 

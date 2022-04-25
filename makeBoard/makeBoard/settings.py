@@ -49,9 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'django.forms', #form을 사용하기 위함
-    
-    'ckeditor',  #wsywig 패키지
-    'ckeditor_uploader',#wsywig 패키지
+    'django_summernote',#summernote 표기
 
     'boards1',
 ]
@@ -91,9 +89,6 @@ WSGI_APPLICATION = 'makeBoard.wsgi.application'
 
 
 
-#위즈위그
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
-CKEDITOR_UPLOAD_PATH = "uploads/"
 
 
 # Database
@@ -161,20 +156,8 @@ STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static')]
 
 
 
-
-
-
 #wsywig 설정
-CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
-CKEDITOR_UPLOAD_PATH = "uploads/"
-CKEDITOR_CONFIGS = {
-    'default': {
-        # 'toolbar': 'Custom',
-        'width': '800px',
-        'height': 'auto',
-        # 'toolbar_Custom': [
-        #     ['Bold', 'Italic', 'Underline'],
-        #     ['NumberedList', 'BulletedList'],
-        # ],
-    }
-}
+
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT= 'media/'

@@ -1,14 +1,12 @@
 from django import forms
-from .models import *
-from ckeditor_uploader.widgets import CKEditorUploadingWidget
+from .models import Topic
 
-from ckeditor.fields import RichTextField
- 
-class RichForm(forms.ModelForm):
+from django_summernote.fields import SummernoteTextFormField
+
+
+class SummerForm(forms.ModelForm):
     class Meta:
         model = Topic
         fields = (
             'content',
         )
- 
-

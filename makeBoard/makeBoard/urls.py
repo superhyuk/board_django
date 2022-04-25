@@ -14,11 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include #추가
+from django.conf import settings
 from boards1 import views
 
 urlpatterns = [
     path('',views.home, name='home'),
     path('new_topic/',views.new_topic,name='new_topic'),#게시글 작성 페이지 url 추가
+    path('summernote/', include('django_summernote.urls')),#summernote url 추가
     path('admin/', admin.site.urls),
 ]
